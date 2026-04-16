@@ -27,3 +27,22 @@ class Staff(Person):
     def displayPerson(self):
         super().displayPerson()
         print(' Staff ID: ', self.id)
+        
+class Student(Person):
+    myclass = 'Student'
+    def __init__(self, name, dob, address,id):
+        super().__init__(name, dob, address)
+        self.id = id
+    
+    def displayStudent(self):
+        super().displayPerson()
+        print(' Student ID: ', self.id)
+
+class Postgrad(Student):
+    pass
+
+class Undergrad(Student):
+    myclass = 'Undergrad'
+        
+    
+    
