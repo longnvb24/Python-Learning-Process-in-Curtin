@@ -11,12 +11,31 @@ class Address():
 class Person():
     def __init__(self, name, dob, address): 
         self.name = name
-        self.dob = dob
+        if self.validDOB(dob):
+            self.dob = dob
+        else:
+            raise ValueError("Invalid date of birth for " + self.name + ": " + dob)
         self.address = address
         
     def displayPerson(self):
         print('Name: ', self.name, '\tDOB: ', self.dob) 
         print(' Address: ', str(self.address))
+        
+    def validDOB(self, dob):
+        try:
+            day, month, year = dob.split('/')
+            day = int(day)
+            month = int(month)
+            year = int(year)
+            if day < 1 or day > 31:
+                return False
+            if month < 1 or month > 12:
+                return False
+            if year < 0 or year > 100:
+                return False
+            return True
+        except ValueError:
+            return False
         
 class Staff(Person):
     myclass = 'Staff'
@@ -38,11 +57,16 @@ class Student(Person):
         super().displayPerson()
         print(' Student ID: ', self.id)
 
-class Postgrad(Student):
-    pass
+class Postgrad(Student, Person):
+    def displayPostgrad(self):
+        super().displayPerson()
+        print(' Postgrad ID: ', self.id)
 
-class Undergrad(Student):
+class Undergrad(Student, Person):
     myclass = 'Undergrad'
+    def displayUndergrad(self):
+        super().displayPerson()
+        print(' Undergrad ID: ', self.id)
         
     
     
