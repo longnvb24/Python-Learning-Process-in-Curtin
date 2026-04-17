@@ -18,10 +18,10 @@ print()
 
 testAdd4 = Address('11', 'Avenger', 'War', '6525')
 testPerson4 = Postgrad('Long Bao', '1/9/01', testAdd4, 'P12345') 
-testPerson4.displayStudent()
+testPerson4.displayPostgrad()
 print()
 
 testAdd5 = Address('7', 'Saringan', 'Chidori', '6035')
 testPerson5 = Undergrad('Chicken 1', '1/6/07', testAdd5, 'U12345') 
-testPerson5.displayStudent()
+testPerson5.displayUndergrad()
 print()
